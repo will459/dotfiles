@@ -3,7 +3,7 @@ set nocompatible      " Enable Vim mode (instead of vi emulation)
 syntax on         " Enable syntax highlighting
 filetype plugin indent on
 
-let g:is_posix = 1              " Our /bin/sh is POSIX, not bash
+"let g:is_posix = 1              " Our /bin/sh is POSIX, not bash
 set smartindent                 " Intelligent indentation matching
 set autoread                    " Update the file if it's changed externally
 set backspace=indent,eol,start  " Allow backspacing over anything
@@ -44,7 +44,7 @@ augroup FreeBSD
 augroup END
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatusLineFlag()}
+set statusline+=%{Syntastic#StatusLineFlag()}
 set statusline+=%*
 
 " Syntastic settings
@@ -56,3 +56,12 @@ let g:syntastic_check_on_wq = 0
 " Rust-vim settings
 let g:rust_fold = 1
 let g:rustfmt_autosave = 1
+
+" Gutentags settings
+let g:gutentags_enabled = 1
+let g:gutentags_add_default_project_roots = 1
+let g:gutentags_exclude_project_root = ["$HOME"]
+let g:gutentags_ctags_executable = 'uctags'
+let g:gutentags_ctags_tagfile = '.tags'
+
+set statusline+=%{gutentags#statusline()}

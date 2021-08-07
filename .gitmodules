@@ -4,3 +4,6 @@
 [submodule ".vim/pack/wecorre/start/rust.vim"]
 	path = .vim/pack/wecorre/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
+[submodule ".vim/pack/wecorre/start/vim-gutentags"]
+	path = .vim/pack/wecorre/start/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
