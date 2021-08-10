@@ -7,3 +7,6 @@
 [submodule ".vim/pack/wecorre/start/vim-gutentags"]
 	path = .vim/pack/wecorre/start/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule ".vim/pack/wecorre/start/vim-gitgutter"]
+	path = .vim/pack/wecorre/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git

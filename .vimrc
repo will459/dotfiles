@@ -2,6 +2,7 @@ set nocompatible      " Enable Vim mode (instead of vi emulation)
 
 syntax on         " Enable syntax highlighting
 filetype plugin indent on
+colorscheme monokai
 
 "let g:is_posix = 1              " Our /bin/sh is POSIX, not bash
 set smartindent                 " Intelligent indentation matching
@@ -26,6 +27,7 @@ set autoindent
 set cindent
 set shiftwidth=4                " Use tabs of width 4 for indentation
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<     " Chars to represent whitespace chars
+set updatetime=100
 
 noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
@@ -44,7 +46,7 @@ augroup FreeBSD
 augroup END
 
 set statusline+=%#warningmsg#
-set statusline+=%{Syntastic#StatusLineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Syntastic settings

@@ -47,3 +47,5 @@ export GPG_TTY
 
 # Dotfiles management
 alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+source /home/wecorre/.config/broot/launcher/bash/br
