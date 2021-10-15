@@ -1,56 +1,28 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
+# i3wm Config
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font xft:JetBrainsMono 7
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn't scale on retina/hidpi displays.
-
+#############
+# KEY BINDS #
+#############
 set $mod Mod4
 
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
 set $up j
 set $down k
 set $left h
 set $right l
 
-# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
 bindsym $mod+Return exec "urxvt -xrm ~/.Xresources"
 
-# kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# Primary menu is dmenu
 bindsym $mod+d exec dmenu_run
+# Secondary is rofi, not sure if I want to switch yet
 bindsym $mod+shift+d exec rofi -show run
 bindsym $mod+shift+s exec rofi -show ssh
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# Reload Xresources
 bindsym $mod+x exec xrdb ~/.Xresources
 
 # change focus
@@ -100,9 +72,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
@@ -110,8 +79,22 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# Audio keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id mixer -S vol +5:+5
+bindsym XF86AudioLowerVolume exec --no-startup-id mixer -S vol -5:-5
+bindsym XF86AudioMute exec --no-startup-id mixer -s vol 0:0
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+
+##############
+# WORKSPACES #
+##############
+
+# Workspace names
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -122,7 +105,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -148,41 +130,12 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# colour variables
-set $bg-colour			#2f343f
-set $bg-inactive-colour		#2d343f
-set $bg-urgent-colour		#E53935
-set $text-colour		#f3f4f5
-set $text-inactive-colour	#676e7d
-set $text-urgent-colour		#ffffff
+#########
+# MODES #
+#########
 
-# Window Colours
-# Type			Border			Background		Text
-client.focused		$bg-colour		$bg-colour		$text-colour
-client.unfocused	$bg-inactive-colour	$bg-inactive-colour	$text-inactive-colour
-client.focused_inactive	$bg-inactive-colour	$bg-inactive-colour	$text-inactive-colour
-client.urgent		$bg-urgent-colour	$bg-urgent-colour	$text-colour
-
-#border related settings
-hide_edge_borders both
-new_window normal
-new_float pixel 5
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
+# Resize window mode
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym $left       resize shrink width 10 px or 10 ppt
         bindsym $down       resize grow height 10 px or 10 ppt
         bindsym $up         resize shrink height 10 px or 10 ppt
@@ -199,19 +152,9 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status --config ~/.config/i3status/config
-}
-
-default_border none
-
-set $Locker i3lock && sleep 1
-
+# System mode
 set $mode_system System (l) lock, (e) logout, (p) poweroff, (r) restart
 mode "$mode_system" {
 	bindsym l exec --no-startup-id i3lock, mode "default"
@@ -219,20 +162,55 @@ mode "$mode_system" {
     bindsym p exec --no-startup-id sudo /sbin/poweroff, mode "default"
     bindsym r exec --no-startup-id sudo /sbin/reboot, mode "default"
 
-	# back to normal: Escape
 	bindsym Escape mode "default"
 }
-
 bindsym $mod+Shift+e mode "$mode_system"
 
-# Audio keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id mixer -S vol +5:+5
-bindsym XF86AudioLowerVolume exec --no-startup-id mixer -S vol -5:-5
-bindsym XF86AudioMute exec --no-startup-id mixer -s vol 0:0
+# Bar settings
+bar {
+        status_command i3status --config ~/.config/i3status/config
+}
 
+# Locker
+set $Locker i3lock && sleep 1
+
+# Misc other settings
 exec xset b off
 exec xset m 1
 exec set s 3600 3600
 exec xset dpms 3600 3600 3600
 
+#########
+# THEME #
+#########
+
+# Font
+font xft:JetBrainsMono 7
+
+# wallpaper
 exec --no-startup-id feh --bg-scale ~/wallpaper.jpg
+
+# border settings
+hide_edge_borders both
+new_window normal
+new_float pixel 5
+default_border none
+
+set_from_resource $term_background  background
+set_from_resource $term_forground   forground
+set_from_resource $term_color0      color0
+set_from_resource $term_color1      color1
+set_from_resource $term_color2      color2
+set_from_resource $term_color3      color3
+set_from_resource $term_color4      color4
+set_from_resource $term_color5      color5
+set_from_resource $term_color6      color6
+set_from_resource $term_color7      color7
+set_from_resource $term_color8      color8
+set_from_resource $term_color9      color9
+set_from_resource $term_color10     color10
+set_from_resource $term_color11     color11
+set_from_resource $term_color12     color12
+set_from_resource $term_color13     color13
+set_from_resource $term_color14     color14
+set_from_resource $term_color15     color15
