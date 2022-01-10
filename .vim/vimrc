@@ -45,6 +45,12 @@ augroup FreeBSD
     endif
 augroup END
 
+augroup templates
+    au!
+    autocmd BufNewFile *.* silent! execute '0r $HOME/.vim/closet/skeleton.'.expand("<afile>:e")
+    autocmd BufNewFile * %substitute#\[:VIM_EVAL:\]\(.\{-\}\)\[:END_EVAL:\]#\=eval(submatch(1))#ge
+augroup END
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
