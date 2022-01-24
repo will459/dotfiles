@@ -28,6 +28,10 @@ set cindent
 set shiftwidth=4                " Use tabs of width 4 for indentation
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<     " Chars to represent whitespace chars
 set updatetime=100
+set foldmethod=syntax
+set foldlevel=99
+set foldlevelstart=99
+set foldenable
 
 noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
