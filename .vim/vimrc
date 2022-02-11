@@ -2,7 +2,9 @@ set nocompatible      " Enable Vim mode (instead of vi emulation)
 
 syntax on         " Enable syntax highlighting
 filetype plugin indent on
-colorscheme monokai
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
 
 "let g:is_posix = 1              " Our /bin/sh is POSIX, not bash
 set smartindent                 " Intelligent indentation matching
@@ -56,7 +58,6 @@ augroup templates
 augroup END
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " ALE settings

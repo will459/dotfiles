@@ -10,3 +10,6 @@
 [submodule ".vim/pack/wecorre/start/ale"]
 	path = .vim/pack/wecorre/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule ".vim/pack/wecorre/opt/ayu-theme"]
+	path = .vim/pack/wecorre/opt/ayu-theme
+	url = https://github.com/ayu-theme/ayu-vim.git
