@@ -3,6 +3,7 @@
 echo alias dotfiles=`which git` --git-dir='$HOME/.dotfiles' --work-tree='$HOME' >> ~/.bashrc
 git clone --bare <repo-clone-url> $HOME/.dotfiles
 dotfiles checkout
+dotfiles submodule update --init --recursive
 ```
 
 ### Creating your own
@@ -10,6 +11,11 @@ dotfiles checkout
 echo alias dotfiles=`which git` --git-dir='$HOME/.dotfiles' --work-tree='$HOME' >> ~/.bashrc
 git init --bare $HOME/.dotfiles
 ```
+
+### Dependencies
+#### Universal Ctags
+Available from: https://github.com/universal-ctags/ctags
+Recommended to install into your local prefix if it is not available in your repos and prefixing the name with a `u` to prevent colliding.  This can be done with `./configure --prefix=$HOME/.local --program-prefix=u`
 
 ### Using
 Once you have checked out or created a repo it can be used exactly like any other git repo except through the `dotfiles` alias.  For instace `dotfiles add .vimrc && dotfiles commit`.
