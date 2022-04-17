@@ -13,3 +13,9 @@
 [submodule ".vim/pack/wecorre/opt/ayu-theme"]
 	path = .vim/pack/themes/opt/ayu-theme
 	url = https://github.com/ayu-theme/ayu-vim.git
+[submodule ".vim/pack/plugins/start/vim-airline"]
+	path = .vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/themes/start/vim-airline-themes"]
+	path = .vim/pack/themes/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
