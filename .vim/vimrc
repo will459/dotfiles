@@ -60,15 +60,15 @@ augroup END
 set statusline+=%#warningmsg#
 set statusline+=%*
 
+" Rust-vim settings
+let g:rust_fold = 1
+let g:rustfmt_autosave = 1
+
 " ALE settings
 let g:ale_linters = {'rust': ['analyzer']}
 let g:ale_fixers = {'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines']}
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
-
-" Rust-vim settings
-let g:rust_fold = 1
-let g:rustfmt_autosave = 1
 
 " Gutentags settings
 let g:gutentags_enabled = 1
