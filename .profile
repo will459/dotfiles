@@ -3,6 +3,7 @@ VISUAL=vim      export VISUAL
 PAGER=less;  	export PAGER
 
 ENV=$HOME/.bashrc; export ENV
+source $ENV
 
 # Query terminal size; useful for serial lines.
 if [ -x /usr/bin/resizewin ] ; then /usr/bin/resizewin -z ; fi
