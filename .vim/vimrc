@@ -35,9 +35,20 @@ set foldlevel=99
 set foldlevelstart=99
 set foldenable
 
+" Whitespace markers toggle
 noremap <F5> :set list!<CR>
 inoremap <F5> <C-o>:set list!<CR>
 cnoremap <F5> <C-c>:set list!<CR>
+
+" Toggle highlight search
+noremap <C-S-h> :set invhlsearch<CR>
+inoremap <C-S-h> <C-o>:set invhlsearch<CR>
+cnoremap <C-S-h> <C-c>:set invhlsearch<CR>
+
+" toggle relative line numbers
+noremap <C-S-r> :set invrelativenumber<CR>
+inoremap <C-S-r> <C-o>:set invrelativenumber<CR>
+cnoremap <C-S-r> <C-c>:set invrelativenumber<CR>
 
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
     set fileencodings=ucs-bom,utf-8,latin1
