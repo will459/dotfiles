@@ -1,6 +1,6 @@
 ### Checkout this repo
 ```
-echo alias dotfiles=`which git` --git-dir='$HOME/.dotfiles' --work-tree='$HOME' >> ~/.bashrc
+alias dotfiles=$(which git) --git-dir='$HOME/.dotfiles' --work-tree='$HOME'
 git clone --bare <repo-clone-url> $HOME/.dotfiles
 dotfiles checkout
 dotfiles submodule update --init --recursive
@@ -8,7 +8,7 @@ dotfiles submodule update --init --recursive
 
 ### Creating your own
 ```
-echo alias dotfiles=`which git` --git-dir='$HOME/.dotfiles' --work-tree='$HOME' >> ~/.bashrc
+echo alias dotfiles=$(which git) --git-dir='$HOME/.dotfiles' --work-tree='$HOME' >> ~/.bashrc
 git init --bare $HOME/.dotfiles
 ```
 
