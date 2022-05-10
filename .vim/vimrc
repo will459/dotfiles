@@ -46,9 +46,9 @@ inoremap <C-S-h> <C-o>:set invhlsearch<CR>
 cnoremap <C-S-h> <C-c>:set invhlsearch<CR>
 
 " toggle relative line numbers
-noremap <C-S-r> :set invrelativenumber<CR>
-inoremap <C-S-r> <C-o>:set invrelativenumber<CR>
-cnoremap <C-S-r> <C-c>:set invrelativenumber<CR>
+noremap <C-S-n> :set invrelativenumber<CR>
+inoremap <C-S-n> <C-o>:set invrelativenumber<CR>
+cnoremap <C-S-n> <C-c>:set invrelativenumber<CR>
 
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
     set fileencodings=ucs-bom,utf-8,latin1
