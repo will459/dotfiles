@@ -72,10 +72,6 @@ augroup END
 set statusline+=%#warningmsg#
 set statusline+=%*
 
-" Rust-vim settings
-let g:rust_fold = 1
-let g:rustfmt_autosave = 1
-
 " ALE settings
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
