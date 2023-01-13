@@ -1,6 +1,7 @@
-EDITOR=vim;   	export EDITOR
-VISUAL=vim      export VISUAL
-PAGER=less;  	export PAGER
+EDITOR=vim;   	                export EDITOR
+VISUAL=vim                      export VISUAL
+PAGER=bat;  	                export PAGER
+MANPAGER="bat --style=grid";    export MANPAGER
 
 ENV=$HOME/.bashrc; export ENV
 source $ENV
