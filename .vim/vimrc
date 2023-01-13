@@ -34,6 +34,7 @@ set foldmethod=syntax
 set foldlevel=99
 set foldlevelstart=99
 set foldenable
+set autowrite
 
 " Whitespace markers toggle
 noremap <F5> :set list!<CR>
@@ -76,8 +77,6 @@ let g:rust_fold = 1
 let g:rustfmt_autosave = 1
 
 " ALE settings
-let g:ale_linters = {'rust': ['analyzer']}
-let g:ale_fixers = {'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines']}
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
 
