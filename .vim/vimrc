@@ -87,3 +87,6 @@ let g:gutentags_ctags_tagfile = '.git/.tags'
 let g:airline_theme = "ayu_dark"
 
 set statusline+=%{gutentags#statusline()}
+
+" Generate helptags always
+silent! helptags ALL
