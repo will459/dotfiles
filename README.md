@@ -26,8 +26,11 @@ Requires clang, clang++, clangd, and clang-format be installed.
 clangd will automatically give lint suggestions if compile\_commands.json is present in the top level directory. If using cmake it is suggested to symlink build\_commands.json to _build/build_commands.json.
 clang-format will attempt to use a .clang-format file in the current directory. To use the LLVM default remove the ale\_c\_clangformat\_options key from ftplugin/cpp.vim
 
-#### Note
+##### Note
 On Debian based distributions you will probably install clang-12 which does not provide unversioned link names. To fix this ensure ~/.local/bin is on the PATH and symlink to `which clang++-12.
+
+#### Shell
+Requires shellcheck
 
 ### Using
 Once you have checked out or created a repo it can be used exactly like any other git repo except through the `dotfiles` alias.  For instace `dotfiles add .vimrc && dotfiles commit`.

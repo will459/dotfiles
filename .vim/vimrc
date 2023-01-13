@@ -3,7 +3,7 @@ set nocompatible      " Enable Vim mode (instead of vi emulation)
 syntax on         " Enable syntax highlighting
 filetype plugin indent on
 set termguicolors
-let ayucolor="dark"
+let ayucolor="mirage"
 colorscheme ayu
 
 "let g:is_posix = 1              " Our /bin/sh is POSIX, not bash
