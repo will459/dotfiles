@@ -1,0 +1,16 @@
+# directories
+.cache/
+*_build/
+
+# C/C++ and CMake
+CMakeCache.txt
+compile_commands.json
+.clang-format
+
+# Rust
+**/*.rs.bk
+
+# Editor files
+.*.sw[a-p]
+*~
+session.vim
