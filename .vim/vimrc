@@ -84,7 +84,7 @@ let g:gutentags_ctags_executable = 'uctags'
 let g:gutentags_ctags_tagfile = '.git/.tags'
 
 " Airline settings
-let g:airline_theme = "ayu_dark"
+let g:airline_theme = "ayu_mirage"
 
 set statusline+=%{gutentags#statusline()}
 
