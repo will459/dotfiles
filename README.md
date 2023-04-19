@@ -1,6 +1,6 @@
 ### Checkout this repo
 ```
-alias dotfiles=$(which git) --git-dir='$HOME/.dotfiles' --work-tree='$HOME'
+alias dotfiles="$(which git) --git-dir='$HOME/.dotfiles' --work-tree='$HOME'"
 git clone --bare <repo-clone-url> $HOME/.dotfiles
 dotfiles checkout
 dotfiles submodule update --init --recursive
@@ -8,17 +8,19 @@ dotfiles submodule update --init --recursive
 
 ### Creating your own
 ```
-echo alias dotfiles=$(which git) --git-dir='$HOME/.dotfiles' --work-tree='$HOME' >> ~/.bashrc
+echo alias dotfiles="$(which git) --git-dir='$HOME/.dotfiles' --work-tree='$HOME'" >> ~/.bashrc
 git init --bare $HOME/.dotfiles
 ```
 
 ### Dependencies
 #### Universal Ctags
 Available from: https://github.com/universal-ctags/ctags
+
 Recommended to install into your local prefix if it is not available in your repos and prefixing the name with a `u` to prevent colliding.  This can be done with `./configure --prefix=$HOME/.local --program-prefix=u`
 
 #### rust-analyzer
-Available from: https://github.com/rust-lang/rust.vim
+Available from: https://github.com/rust-lang/rust-analyzer
+
 Can be installed easil with `cargo xtask install --server` which places it into ~/.cargo/bin.  Alternatively, build it manually and install it into ~/.local/bin
 
 #### clang/clangd/clang-format
@@ -27,7 +29,7 @@ clangd will automatically give lint suggestions if compile\_commands.json is pre
 clang-format will attempt to use a .clang-format file in the current directory. To use the LLVM default remove the ale\_c\_clangformat\_options key from ftplugin/cpp.vim
 
 ##### Note
-On Debian based distributions you will probably install clang-12 which does not provide unversioned link names. To fix this ensure ~/.local/bin is on the PATH and symlink to `which clang++-12.
+On some distributions clang is provided with versioned names (i.e. clang++-12) but these scripts assume these binaries are unversioned names. To address this create links for clang/clang++/clang-format.
 
 #### Shell
 Requires shellcheck
