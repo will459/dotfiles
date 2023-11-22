@@ -4,8 +4,8 @@ if status --is-login
 
     set -x EDITOR vim
     set -x VISUAL vim
-    set -x PAGER bat
-    set -x MANPAGE bat --style=grid
+    set -x PAGER less
+    set -x MANPAGE sh -c 'col -bx | bat -l man -p'
 end
 
 set -x GPG_TTY (tty)

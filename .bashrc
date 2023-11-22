@@ -1,13 +1,9 @@
-# some useful aliases
-alias h='fc -l'
-alias j=jobs
-alias m="$PAGER"
-alias ll='ls -laFo'
-alias l='ls -l'
-alias g='egrep -i'
- 
-GPG_TTY=$(tty)
-export GPG_TTY
+export EDITOR="vim"
+export VISUAL="$EDITOR"
+export PAGER="less"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+export GPG_TTY=$(tty)
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

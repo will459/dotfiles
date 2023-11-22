@@ -35,6 +35,7 @@ set foldlevel=99
 set foldlevelstart=99
 set foldenable
 set autowrite
+set undofile
 
 " Whitespace markers toggle
 noremap <F5> :set list!<CR>
