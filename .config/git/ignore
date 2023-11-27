@@ -1,11 +1,11 @@
 # directories
 .cache/
 *_build/
+build_*/
 
 # C/C++ and CMake
 CMakeCache.txt
 compile_commands.json
-.clang-format
 
 # Rust
 **/*.rs.bk
@@ -14,4 +14,10 @@ compile_commands.json
 .*.sw[a-p]
 *~
 Session.vim
-*profraw
+
+# Profiling files
+*.profraw
+*.profdata
+
+# Data files
+*.pcap

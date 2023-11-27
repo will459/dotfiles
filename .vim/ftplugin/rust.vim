@@ -9,5 +9,6 @@ let g:ale_rust_cargo_check_all_targets=1
 let g:ale_rust_cargo_check_tests=1
 let g:ale_rust_cargo_check_examples=1
 let g:ale_rust_cargo_default_feature_behavior='all'
+let b:ale_fix_on_save=1
 let g:ale_rust_analyzer_config={'rust-analyzer.cargo.features': 'all'}
 let g:ale_history_log_output=1
